@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, session
-from vtools import validate
+from . vtools import validate
 
 app = Flask(__name__)
 app.secret_key = "donkey"
