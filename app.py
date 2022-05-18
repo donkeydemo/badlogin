@@ -18,7 +18,7 @@ def login():
             pwd = request.form["pwd"]
             result = validate.authenticate(usr, pwd, request)
             if not session["authenticated"]:
-                flash("Access denied")
+                flash("Access denied - remember that hacking is illegal!")
             else:
                 return render_template('index.html', title="Donkey", stage="otp", username=usr)
         else:
