@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8a8c2495-4b8c-4282-a028-55a16ef96caa/resourceGroups/quicktalks/providers/Microsoft.Web/sites/getoil",
+    "appService.deploySubpath": "."
+}
