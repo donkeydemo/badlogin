@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        
+        <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+                <i class="fas fa-key" aria-hidden="true"></i>
+            </span>
+        </button>
+    </div>
+    <div class="card-content">
+        {% with flashmsgs = get_flashed_messages() %}
+            {% for msg in flashmsgs %}
+            <div class="notification is-warning">
+                <p>
+                    {{ msg }}
+                </p>
+            </div>
+            {% endfor %}
+        {% endwith %}
+        <form action="/login" class="form" method="post">
+            <input type="hidden" name="stage" value="{{ stage }}">
+            {% if stage == "password" %}
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" placeholder="Username" class="input" name="usr" required>
+            </div>
+            <div class="field">
+                <label for="pwd">Username</label>
+                <input type="password" placeholder="Password" class="input" name="pwd" required>
+            </div>
+            {% else %}
+            <div class="field">
+                <label for="otp">OTP</label>
+                <input type="text" placeholder="123456" class="input" name="otp" required>
+            </div>
+            {% endif %}
+            <div class="buttons">
+                <input type="submit" class="button is-medium is-primary" value="Log in">
+                <input type="reset" class="button is-medium is-dark" value="Cancel">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
