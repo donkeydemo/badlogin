@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, session
-from .tools import validate
+from vtools import validate
 
 app = Flask(__name__)
 app.secret_key = "donkey"
@@ -47,3 +47,6 @@ def logout():
     except:
         app.logger.info("Logout function hit with no active session")
     return redirect('/')
+
+if __name__ == '__main__':
+   app.run()
