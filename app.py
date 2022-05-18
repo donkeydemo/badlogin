@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, flash, session
-from . vtools import validate
+from vtools import validate
 
 app = Flask(__name__)
 app.secret_key = "donkey"
 @app.route("/")
 def hello_world():
     elf = validate.validate("donkey")
-    return render_template('index.html', title="Donkey", stage="password")
+    return render_template('index.html', title="Oil Logon", stage="password")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
